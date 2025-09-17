@@ -2,38 +2,27 @@
   --slot-width: 30px;
 }
 
+#app {
+    font-family: 'Meiryo UI', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-align: center;
+    color: #2c3e50;
+}
+body {
+  background-color: #f5f7fa;
+}
+
 /* 全局容器样式 - 控制组件整体布局 */
-.health-checkup-container {
+.page-container {
   max-width: 2000px;
   margin: 0 auto;
-  padding: 10px;
-  font-family: "Microsoft YaHei", Arial, sans-serif;
+  padding: 5px;
   box-sizing: border-box;
 }
 
-/* 头部标题区域 - 系统名称与说明 */
-.health-checkup-header {
-  text-align: center;
-  margin-bottom: 10px;
-  color: #2c3e50;
-}
-
-.health-checkup-header .system-title {
-  font-size: 26px;
-  font-weight: 700;
-  margin-bottom: 12px;
-  letter-spacing: 0.5px;
-}
-
-.health-checkup-header p {
-  font-size: 14px;
-  color: #7f8c8d;
-  margin: 0;
-  line-height: 1.5;
-}
-
 /* 主体内容区 - 左侧项目列表与右侧时间轴布局 */
-.health-checkup-main {
+.content-area {
   display: flex;
   gap: 20px;
   align-items: flex-start;
@@ -65,7 +54,7 @@
 /* 时间轴刻度区 - 顶部时间标记 */
 .timeline {
   display: flex;
-  height: 60px;
+  height: 50px;
   background: #f8f9fa;
   border-bottom: 1px solid #f0f0f0;
   box-sizing: border-box;
@@ -203,8 +192,7 @@
 .ecg { background: linear-gradient(45deg, #AA076B, #61045F); }
 .urine-test { background: linear-gradient(45deg, #2193b0, #6dd5ed); }
 
-/* 统计信息区域 - 底部数据展示 */
-.health-checkup-stats {
+.block-area {
   padding: 5px 10px;
   margin: 5px 0;
   background: #ffffff;
@@ -213,7 +201,7 @@
   box-sizing: border-box;
 }
 
-.health-checkup-stats h3 {
+.block-area h3 {
   padding: 10px 0;
   margin: 0 0 10px;
   color: #3498db;
@@ -221,34 +209,6 @@
   font-weight: 600;
   border-bottom: 1px solid #f0f0f0;
   text-align: left;
-}
-
-.stats-content {
-  display: flex;
-  justify-content: space-around;
-  flex-wrap: wrap;
-  gap: 30px;
-  box-sizing: border-box;
-}
-
-.stat-item {
-  text-align: center;
-  min-width: 120px;
-  box-sizing: border-box;
-}
-
-.stat-value {
-  font-size: 24px;
-  font-weight: bold;
-  color: #2c3e50;
-  margin-bottom: 8px;
-  line-height: 1.2;
-}
-
-.stat-label {
-  font-size: 14px;
-  color: #7f8c8d;
-  line-height: 1.5;
 }
 
 .common-exam-area {
@@ -287,7 +247,9 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 10px;
+  padding: 5px 0;
+  border-bottom: 1px solid #e9e8e8;
+  margin-bottom: 5px;
 }
 
 .left-group,
@@ -313,3 +275,63 @@
 .row-unselected .slot{
   border: none;
 }
+
+.context-container {
+  display: flex;
+  margin-bottom: 10px;
+}
+
+.table-container {
+  display: flex;
+  flex-direction: column;
+  max-width: 100vw;
+  overflow: hidden;
+}
+
+.table-header {
+  display: flex;
+  justify-content: space-between;
+  max-height: 35px;
+  margin-bottom: 5px;
+}
+
+.table-container .title{
+  color: #3498db;
+  font-size: 16px;
+  font-weight: 600;
+  text-align: left;
+  padding-top: 5px;
+}
+
+::v-deep .el-table__cell.is-editing .cell {
+  padding: 0 !important;
+}
+
+::v-deep .el-input,
+::v-deep .el-input-number {
+  width: 100%;
+}
+
+/* 检查项目项 - 拖拽源样式 */
+.image-box {
+  max-width: 150px;
+  max-height: 30px;
+  border-radius: 6px;
+  transition: all 0.25s ease;
+  font-size: 13px;
+  text-align: center;
+  color: #2c3e50;
+  background-color: #6dd5ed;
+}
+
+.add-item-area {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  margin-bottom: 5px;
+}
+
+.add-item-area div{
+  margin: 0 4px 0 0;
+}
+

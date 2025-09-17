@@ -1,10 +1,5 @@
 <template>
-  <div class="health-checkup-container">
-    <!-- 头部标题区 -->
-    <div class="health-checkup-header">
-      <div class="system-title">健診フロー作成</div>
-    </div>
-    
+  <div class="page-container">
     <!-- 検索エリア-->
     <div class="search-area">
       <div class="left-group">
@@ -24,7 +19,7 @@
     </div>
     
     <!-- 主体内容区 -->
-    <div class="health-checkup-main">
+    <div class="content-area">
       <div class="schedule-container">
         <div class="schedule-content">
           <div class="timeline">
@@ -81,7 +76,7 @@
       </div>
     </div>
     
-    <div class="health-checkup-stats">
+    <div class="block-area">
       <h3>共通健診項目</h3>
       <!-- 检查项目列表 -->
       <div class="exam-list">
@@ -123,32 +118,12 @@
         </draggable>
       </div>
     </div>
-
-    <!-- 统计信息区 -->
-    <div class="health-checkup-stats" style="display: none;">
-      <h3>统计信息</h3>
-      <div class="stats-content">
-        <div class="stat-item">
-          <div class="stat-value">{{ stats.totalExams }}</div>
-          <div class="stat-label">总检查项目</div>
-        </div>
-        <div class="stat-item">
-          <div class="stat-value">{{ stats.totalDuration }}</div>
-          <div class="stat-label">总检查时长</div>
-        </div>
-        <div class="stat-item">
-          <div class="stat-value">{{ stats.avgExams }}</div>
-          <div class="stat-label">人均检查数</div>
-        </div>
-      </div>
-    </div>
   </div>
 </template>
 
 <script setup>
 import { ref, computed } from 'vue'
 import draggable from 'vuedraggable'; 
-import './HealthCheckupFlow.css';
 
 // 時間軸の開始時
 const START_HOUR = 7;
@@ -185,7 +160,7 @@ const patients = ref([
   { id: 2, name: '加藤　花子', flow: [] , exams: [
     { name: '聴力', code: 'blood-test', duration: 2 }
     ,{ name: '内視鏡前処置（個室）', code: 'x-ray', duration: 36 }
-    ,{ name: '胸部CT', code: 'mri', duration: 2 }
+    ,{ name: 'PET-CT', code: 'mri', duration: 2 }
     ,{ name: '上下内視鏡(鎮静下)', code: 'ultrasound', duration: 8 }
     ,{ name: 'リカバリー', code: 'blood-test', duration: 6 }
     ,{ name: 'PET-CT', code: 'blood-test', duration: 18 }]},
